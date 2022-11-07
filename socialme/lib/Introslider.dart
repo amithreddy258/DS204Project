@@ -54,14 +54,17 @@ class _HomeState extends State<Introslider> {
             },
             children: <Widget>[
               SlideTile(
+                pageNum: mySLides[0].getPageNum(),
                 imagePath: mySLides[0].getImageAssetPath(),
                 title: mySLides[0].getTitle(),
               ),
               SlideTile(
+                pageNum: mySLides[1].getPageNum(),
                 imagePath: mySLides[1].getImageAssetPath(),
                 title: mySLides[1].getTitle(),
               ),
               SlideTile(
+                pageNum: mySLides[2].getPageNum(),
                 imagePath: mySLides[2].getImageAssetPath(),
                 title: mySLides[2].getTitle(),
               )
@@ -152,29 +155,51 @@ class _HomeState extends State<Introslider> {
 
 class SlideTile extends StatelessWidget {
   String imagePath, title;
-
-  SlideTile({super.key, required this.imagePath, required this.title});
+  int pageNum;
+  SlideTile(
+      {super.key,
+      required this.pageNum,
+      required this.imagePath,
+      required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      color: Colors.white10,
-      alignment: Alignment.center,
+      color: Color.fromRGBO(170, 182, 251, 100),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(imagePath),
+          Text(
+            "The",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
+          Text(
+            "Social Me",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 39, color: Colors.black),
+          ),
+          Text(
+            pageNum.toString(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 100,
+                color: Colors.black),
+          ),
+          Image.asset(
+            imagePath,
+            height: 250,
+          ),
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Text(
             title,
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 40,
-                color: Colors.deepPurple),
+                fontWeight: FontWeight.w500, fontSize: 25, color: Colors.black),
           ),
           const SizedBox(
             height: 20,
