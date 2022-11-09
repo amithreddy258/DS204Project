@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'SliderModel.dart';
@@ -166,14 +167,16 @@ class SlideTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      color: Color.fromRGBO(170, 182, 251, 100),
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('lib/images/Loading1.png'), fit: BoxFit.cover)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
             "The",
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 16, color: Colors.grey),
+            style: TextStyle(fontSize: 16, color: Colors.white),
           ),
           Text(
             "Social Me",
